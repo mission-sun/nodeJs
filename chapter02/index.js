@@ -25,8 +25,6 @@ app.use(async (ctx, next) => {
     }
     // {"url":"/?search=koa","query":{"search":"koa"},"querystring":"search=koa"}
     **/
-
-
 })
 
 // 1 当只执行启动服务时，页面访问时不会有任何输出

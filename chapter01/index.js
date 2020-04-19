@@ -3,6 +3,37 @@ const path = require("path");
 const url = require("url");
 const fs = require("fs");
 const hostname = "127.0.0.1";
+
+const EventEmitter = require('events');
+
+class MyEmitter extends EventEmitter {}
+
+const myEmitter = new MyEmitter();
+
+var listener1 = function listener1() {
+  console.log('监听器 listener1 执行。');
+}
+
+// 监听器 #2
+var listener2 = function listener2() {
+ console.log('监听器 listener2 执行。');
+}
+
+// myEmitter.on('connection', listener2);
+myEmitter.addListener('connection', listener1);
+
+
+myEmitter.emit('connection');
+
+
+
+// myEmitter.on('event', () => {
+//   console.log('触发事件1');
+// });
+// console.log("222")
+setTimeout( () => {}) 
+myEmitter.emit('event');
+
 const port = 8888;
 const server = http.createServer((req, res) => {
   // parse 的对象转换有pathname
@@ -29,5 +60,7 @@ const server = http.createServer((req, res) => {
   }
 });
 server.listen(port, hostname, () => {
+  process.title='程序员成长指北测试进程';
+  console.log('进程id',process.pid)
   console.log(`Server running at http://${hostname}:${port}/`);
 });

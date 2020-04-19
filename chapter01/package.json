@@ -9,6 +9,7 @@
   "author": "smx",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.0.1",
     "fs": "0.0.1-security",
     "http": "0.0.0",
     "nodemon": "^1.19.1",
